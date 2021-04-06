@@ -67,6 +67,7 @@ limitations under the License. -->
     public search: string = '';
     public visible: boolean = false;
     get filterData() {
+      console.log(this.data);
       return this.data.filter((i: any) => i.label.toUpperCase().indexOf(this.search.toUpperCase()) !== -1);
     }
     public handleOpen() {

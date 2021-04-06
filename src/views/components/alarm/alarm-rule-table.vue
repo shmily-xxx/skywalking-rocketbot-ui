@@ -14,33 +14,64 @@ See the License for the specific language governing permissions and
 limitations under the License. -->
 <template>
   <div class="rk-alarm-table clear">
-    <div v-for="(i, index) in data" :key="index" class="mb-10 clear">
-      <div class="g-sm-3 grey sm hide-xs rk-alarm-time-line tr">{{ parseInt(i.startTime) | dateformat }}</div>
-      <div class="rk-alarm-table-i g-sm-9">
-        <div class="message mb-5 b">{{ i.message }}</div>
-        <div
-          class="rk-alarm-table-i-scope mr-10 l sm"
-          :class="{
-            blue: i.scope === 'Service',
-            green: i.scope === 'Endpoint',
-            yellow: i.scope === 'ServiceInstance',
-          }"
-        >
-          {{ $t(i.scope.toLowerCase()) }}
-        </div>
-        <div class="grey sm show-xs">{{ parseInt(i.startTime) | dateformat }}</div>
-      </div>
-    </div>
+    啊水电费快来睡觉的福利开机啊收到了付款就离开手机的福利款设计的分类
+    <div @click="dialogConfigVisible = true">创建</div>
+    <el-table :data="data" style="width: 100%">
+      <el-table-column prop="name" label="规则名称" width="180">
+        <template slot-scope="scope">
+          <el-button type="text" size="small">{{ scope.row.name }}</el-button>
+        </template>
+      </el-table-column>
+      <el-table-column prop="middleCategoryCode" label="资源范围" width="180"></el-table-column>
+      <el-table-column prop="metrics" label="告警规则"></el-table-column>
+      <el-table-column width="100" prop="address" label="操作">
+        <template slot-scope="scope">
+          <el-button @click="handleClick(scope.row)" type="text" size="small">{{ $t('delete') }}</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <el-dialog title :visible.sync="dialogVisible" width="30%">
+      <span>是否删除</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">{{ $t('cancel') }}</el-button>
+        <el-button type="primary" @click="confirm">{{ $t('confirm') }}</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
 <script lang="ts">
   import Vue from 'vue';
   import { Component, Prop } from 'vue-property-decorator';
+  import { State, Getter, Mutation } from 'vuex-class';
+  import { TraceDetailChartTable } from '../common';
 
-  @Component
-  export default class AlarmTable extends Vue {
+  @Component({
+    components: { TraceDetailChartTable },
+  })
+  export default class AlarmRuleTable extends Vue {
     @Prop({ default: () => [] }) private data: any;
+    private dialogVisible: boolean = false;
+    private detail: any;
+    private dialogConfigVisible = false;
+    private chartRender() {
+      // console.log(22);
+    }
+    private selectSpan() {
+      // console.log(222);
+    }
+    private handleClick(row: any) {
+      this.detail = row;
+      this.dialogVisible = true;
+      console.log(row);
+    }
+    private confirm(row: any) {
+      console.log(row);
+      this.dialogVisible = false;
+    }
+    private mounted() {
+      // console.log(this.data);
+    }
   }
 </script>
 

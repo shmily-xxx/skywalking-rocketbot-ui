@@ -271,6 +271,7 @@ limitations under the License. -->
       this.loading = true;
     },
     mounted() {
+
       this.tableData = this.formatData(this.changeTree());
       this.loading = false;
       this.$eventBus.$on('HANDLE-SELECT-SPAN', this, this.handleSelectSpan);

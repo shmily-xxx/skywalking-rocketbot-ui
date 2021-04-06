@@ -69,10 +69,11 @@ export const routes: RouteConfig[] = [
   },
 ];
 
+declare const window: Window & { __POWERED_BY_QIANKUN__: any };
 const router = new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
   linkActiveClass: 'active',
+  base: window.__POWERED_BY_QIANKUN__ ? '/monitor/skyWlking' : '/',
+  mode: 'history',
   routes,
 });
 

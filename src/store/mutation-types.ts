@@ -59,6 +59,9 @@ export const SET_INSTANCE_INFO = 'SET_INSTANCE_INFO';
 // alarm
 export const SET_ALARM = 'SET_ALARM';
 export const CLEAR_ALARM = 'CLEAR_ALARM';
+export const SET_ALARM_RULE = 'SET_ALARM_RULE';
+export const CLEAR_ALARM_RULE = 'CLEAR_ALARM_RULE';
+export const SET_ALARM_PAGE_TYPE = 'SET_ALARM_PAGE_TYPE';
 
 // trace
 export const SET_TRACELIST = 'SET_TRACELIST';

@@ -198,6 +198,10 @@ const m = {
   logsTagsTip: '只有core/default/searchableLogsTags中定义的标记才可搜索。查看配置词汇表页面上的更多详细信息。',
   keywordsOfContentLogTips: 'SkyWalking OAP服务器的当前存储不支持此操作',
   instanceAttributes: '查看实例属性',
+  alarmHistory: '告警历史',
+  alarmStrategy: '告警策略',
+  addAlarmRule: '新建告警规则',
+  delete: '删除',
 };
 
 export default m;
