@@ -1,8 +1,8 @@
 import axios from 'axios';
-import store from '@/store';
+import { Message, Loading } from 'element-ui';
+import i18n from '@/i18n';
 import Vue from 'vue';
 
-const whiteMenu = ['collection/status', 'resources/manager', 'cmdb/manage/resource/list']; // 'resource/list',
 const request = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
   withCredentials: true, // send cookies when cross-domain requests
@@ -10,10 +10,18 @@ const request = axios.create({
 });
 
 // request interceptor
-const record: any[] = [];
-let isAlertReloadBox = true;
+const record: any = [];
+let loadingInstance: any;
 request.interceptors.request.use(
   (config) => {
+    const showLoading = true;
+    if (showLoading) {
+      record.push(config.url);
+      loadingInstance = Loading.service({
+        fullscreen: true,
+        background: 'rgba(0, 0, 0, 0)',
+      });
+    }
     config.headers['Content-Type'] = 'application/json';
     config.headers['X-XSS-Protection'] = '1';
     config.headers['X-Content-Type-Options'] = 'nosniff';
@@ -27,7 +35,7 @@ request.interceptors.request.use(
     return config;
   },
   (error) => {
-    console.log(error); // for debug
+    // console.log(error); // for debug
     return Promise.reject(error);
   },
 );
@@ -36,49 +44,86 @@ request.interceptors.request.use(
 request.interceptors.response.use(
   (response) => {
     record.pop();
+    if (record.length < 1 && loadingInstance) {
+      Vue.nextTick(() => {
+        loadingInstance.close();
+      });
+    }
     if (Math.floor(response.status / 100) === 2) {
       // 正常处理
       return response.data;
     } else {
-      console.log(222);
+      Message({
+        message: 'Error',
+        type: 'error',
+        duration: 3 * 1000,
+      });
     }
   },
   (error) => {
     const { response } = error;
     record.pop();
+    if (record.length < 1 && loadingInstance) {
+      Vue.nextTick(() => {
+        loadingInstance.close();
+      });
+    }
     if (response) {
       if (error.message.includes('timeout')) {
         // 判断请求异常信息中是否含有超时timeout字符串
-        console.log(222);
+        Message({
+          message: i18n.tc('resErrorMsg'),
+          type: 'error',
+          duration: 3 * 1000,
+        });
         return Promise.reject(error);
       }
       switch (response.status) {
         case 401:
         case 302:
-          if (sessionStorage.getItem('isFirst') === 'true' && isAlertReloadBox) {
-            isAlertReloadBox = false;
-            console.log(222);
-          } /* else {
-              store.dispatch('user/logout');
-            } */
+          Message({
+            message: error.response.data.message || i18n.tc('forbiddenErrorMsg'),
+            type: 'warning',
+            duration: 3 * 1000,
+          });
           break;
         case 403:
-          console.log(222);
+          Message({
+            message: error.response.data.message || i18n.tc('forbiddenErrorMsg'),
+            type: 'warning',
+            duration: 3 * 1000,
+          });
           break;
         case 404:
-          console.log(222);
+          Message({
+            message: error.response.data.message || i18n.tc('res404ErrorMsg'),
+            type: 'warning',
+            duration: 3 * 1000,
+          });
           break;
         case 509:
-          console.log(222);
+          Message({
+            message: error.response.data.message || i18n.tc('resErrorMsg'),
+            type: 'warning',
+            duration: 3 * 1000,
+          });
           break;
         default:
-          console.log(222);
+          Message({
+            message: error.response.data.message || i18n.tc('resErrorMsg'),
+            type: 'error',
+            duration: 3 * 1000,
+          });
           break;
       }
 
       return Promise.reject(error);
     } else {
-      console.log(222);
+      Message({
+        message: i18n.tc('resErrorMsg'),
+        type: 'error',
+        duration: 3 * 1000,
+      });
       return Promise.reject(error);
     }
   },

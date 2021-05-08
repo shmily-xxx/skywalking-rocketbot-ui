@@ -138,7 +138,7 @@ limitations under the License. -->
 <style lang="scss" scoped>
   .rk-dashboard-bar-btn {
     padding: 0 5px;
-    border-right: 2px solid #252a2f;
+    // border-right: 2px solid #252a2f;
     height: 19px;
   }
   #instance-file {

@@ -36,7 +36,7 @@ export const routes: RouteConfig[] = [
       {
         path: '/',
         component: () => import('./views/containers/dashboard.vue'),
-        meta: { icon: 'chart', title: 'dashboard', exact: true },
+        meta: { icon: 'chart', title: 'metrics', exact: true },
       },
       {
         path: 'topology',
@@ -68,12 +68,10 @@ export const routes: RouteConfig[] = [
     ],
   },
 ];
-
-declare const window: Window & { __POWERED_BY_QIANKUN__: any };
 const router = new Router({
-  linkActiveClass: 'active',
-  base: window.__POWERED_BY_QIANKUN__ ? '/monitor/skyWlking' : '/',
   mode: 'history',
+  base: process.env.BASE_URL,
+  linkActiveClass: 'active',
   routes,
 });
 
@@ -96,5 +94,4 @@ router.beforeEach((to, from, next) => {
   // }
   next();
 });
-
 export default router;

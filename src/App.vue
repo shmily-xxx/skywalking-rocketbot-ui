@@ -19,7 +19,18 @@ limitations under the License. -->
   import { Component, Vue } from 'vue-property-decorator';
 
   @Component
-  export default class App extends Vue {}
+  export default class App extends Vue {
+    private created() {
+      window.localStorage.setItem('tenantId', window.location.href.split('?')[1] || '');
+    }
+  }
+  window.addEventListener(
+    'message',
+    (e) => {
+      console.log(e.origin, e.data);
+    },
+    true,
+  );
 </script>
 <style>
   @import './assets/styles/reset.scss';

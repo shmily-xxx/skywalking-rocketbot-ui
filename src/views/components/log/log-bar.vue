@@ -53,15 +53,15 @@ limitations under the License. -->
         />
       </div>
       <span class="flex-h rk-right">
-        <a class="rk-log-search-btn bg-blue mr-10" @click="openConditionsBox">
+        <a class="rk-log-search-btn white bg-blue mr-10" @click="openConditionsBox">
           <rk-icon icon="settings" class="mr-5" />
           <span class="vm">{{ $t('setConditions') }}</span>
         </a>
-        <a class="rk-log-search-btn bg-blue mr-10" @click="queryLogs">
+        <a class="rk-log-search-btn white bg-blue mr-10" @click="queryLogs">
           <rk-icon icon="search" class="mr-5" />
           <span class="vm">{{ $t('search') }}</span>
         </a>
-        <a class="rk-log-clear-btn r mr-10" @click="clearSearch">
+        <a class="rk-log-clear-btn r mr-10 white bg-blue" @click="clearSearch">
           <rk-icon icon="clear" class="mr-5" />
           <span class="vm">{{ $t('clear') }}</span>
         </a>
@@ -201,12 +201,14 @@ limitations under the License. -->
 <style scoped lang="scss">
   .rk-log-nav {
     width: 100%;
-    background: #333840;
+    // background: #333840;
+    background: #f3f4f9;
   }
   .rk-error-log-bar {
     flex-shrink: 0;
-    background-color: #333840;
-    color: #eee;
+    // background-color: #333840;
+    background-color: #f3f4f9;
+    // color: #eee;
     width: 100%;
     height: 52px;
     justify-content: space-between;
@@ -226,7 +228,7 @@ limitations under the License. -->
   }
   .rk-log-clear-btn {
     padding: 3px 9px;
-    background-color: #484b55;
+    // background-color: #484b55;
     border-radius: 4px;
   }
   .log-condition-box {

@@ -166,8 +166,9 @@ limitations under the License. -->
 <style lang="scss" scoped>
   .rk-dashboard-bar {
     flex-shrink: 0;
-    color: #efefef;
-    background-color: #333840;
+    //color: #efefef;
+    // background-color: #333840;
+    background-color: #f3f4f9;
     .instance-attributes-box {
       color: #252a2f;
     }
@@ -177,7 +178,7 @@ limitations under the License. -->
     }
     .service-search {
       padding: 0 5px;
-      border-right: 2px solid #252a2f;
+      // border-right: 2px solid #252a2f;
       input {
         border-style: unset;
         outline: 0;
@@ -190,10 +191,12 @@ limitations under the License. -->
       }
     }
     .rk-view-instance-attributes {
-      background-color: #484b55;
+      // background-color: #484b55;
+      background-color: #3369ff;
       border-radius: 4px;
       margin-left: 5px;
       padding: 5px 10px;
+      color: #fff;
     }
   }
 </style>

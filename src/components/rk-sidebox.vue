@@ -25,7 +25,7 @@ limitations under the License. -->
         <span class="title">{{ this.title }}</span>
         <div class="r rk-sidebox-close" @click="handleHide">
           <svg class="icon">
-            <use xlink:href="#close"></use>
+            <use xlink:href="#close" />
           </svg>
         </div>
       </div>
@@ -79,7 +79,7 @@ limitations under the License. -->
     position: fixed;
     right: 0;
     top: 50px;
-    bottom: 30px;
+    bottom: 0;
     z-index: 200;
     background-color: #fff;
   }

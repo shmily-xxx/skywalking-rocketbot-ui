@@ -21,7 +21,7 @@ import clickout from '@/utils/clickout';
 import tooltip from '@/utils/tooltip';
 import eventBus from './event-bus';
 import App from './App.vue';
-import routes from './router';
+import router from './router';
 import store from './store';
 import i18n from './i18n';
 import components from './components';
@@ -37,7 +37,10 @@ import VModal from 'vue-js-modal';
 import { queryOAPTimeInfo } from './utils/localtime';
 import './assets';
 import 'element-ui/lib/theme-chalk/index.css';
+import './assets/styles/theme/index.css';
 import './utils/elementUi';
+import './utils/element.scss';
+
 Vue.use(eventBus);
 Vue.use(components);
 Vue.use(VModal, { dialog: true });
@@ -49,37 +52,13 @@ Vue.filter('dateformat', (dataStr: any, pattern: string = 'YYYY-MM-DD HH:mm:ss')
 if (!window.Promise) {
   window.Promise = Promise;
 }
-Vue.config.productionTip = false;
-declare const window: Window & { __POWERED_BY_QIANKUN__: any };
-let router: any = null;
-let instance: any = null;
-function render(props: any) {
-  const { container } = props;
-  router = routes;
-  queryOAPTimeInfo().then(() => {
-    instance = new Vue({
-      i18n,
-      router,
-      store,
-      render: (h) => h(App),
-    }).$mount(container ? container.querySelector('#app') : '#app');
-  });
-}
-// 独立运行时
-if (!window.__POWERED_BY_QIANKUN__) {
-  render({});
-}
 
-export async function bootstrap() {
-  console.log('[vue] vue app bootstraped');
-}
-export async function mount(props: any) {
-  console.log('[vue] props from main framework', props);
-  render(props);
-}
-export async function unmount() {
-  instance.$destroy();
-  instance.$el.innerHTML = '';
-  instance = null;
-  router = null;
-}
+Vue.config.productionTip = false;
+queryOAPTimeInfo().then(() => {
+  new Vue({
+    i18n,
+    router,
+    store,
+    render: (h) => h(App),
+  }).$mount('#app');
+});

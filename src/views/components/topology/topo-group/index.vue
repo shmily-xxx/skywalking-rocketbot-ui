@@ -86,7 +86,7 @@ limitations under the License. -->
       this.GET_TOPO({ duration: this.durationTime, serviceIds: this.services.map((i) => i.key) });
     }
     private fetchData() {
-      return Axios.post('/graphql', {
+      return Axios.post('/gateway/oap/graphql', {
         query: `
           query queryServices($duration: Duration!) {
             services: getAllServices(duration: $duration) {

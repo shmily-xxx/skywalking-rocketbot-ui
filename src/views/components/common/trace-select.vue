@@ -100,13 +100,15 @@ limitations under the License. -->
   .rk-trace-bar-i {
     height: 100%;
     padding: 0 15px;
-    border-right: 2px solid #252a2f;
+    // border-right: 2px solid #252a2f;
   }
   .rk-trace-sel {
     position: absolute;
     top: 44px;
-    box-shadow: 0 1px 6px rgba(99, 99, 99, 0.2);
-    background-color: #252a2f;
+    // box-shadow: 0 1px 6px rgba(99, 99, 99, 0.2);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    //background-color: #252a2f;
+    background-color: #fff;
     width: 100%;
     border-radius: 3px;
     overflow: hidden;
@@ -124,14 +126,16 @@ limitations under the License. -->
     padding: 7px 15px;
     &.active,
     &:hover {
-      background-color: #40454e;
+      // background-color: #40454e;
+      background-color: #ecf3ff;
     }
   }
   .rk-trace-sel-search {
     width: calc(100% - 4px);
     border: 0;
-    background-color: #333840;
-    color: #eee;
+    // background-color: #333840;
+    background-color: #f3f4f9;
+    // color: #eee;
     outline: 0;
     padding: 7px 25px 7px 10px;
     margin: 2px;

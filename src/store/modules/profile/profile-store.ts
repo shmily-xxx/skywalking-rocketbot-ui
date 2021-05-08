@@ -151,7 +151,7 @@ const actions = {
         return res.data.data.getProfileTaskList;
       })
       .then((data: any) => {
-        if (!data) {
+        if (!data || !data.length) {
           return;
         }
         context.dispatch('GET_SEGMENT_LIST', { taskID: data[0].id });

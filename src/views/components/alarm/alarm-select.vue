@@ -67,7 +67,6 @@ limitations under the License. -->
     public search: string = '';
     public visible: boolean = false;
     get filterData() {
-      console.log(this.data);
       return this.data.filter((i: any) => i.label.toUpperCase().indexOf(this.search.toUpperCase()) !== -1);
     }
     public handleOpen() {
@@ -100,13 +99,14 @@ limitations under the License. -->
   .rk-alarm-bar-i {
     height: 100%;
     padding: 0 15px;
-    border-right: 2px solid #252a2f;
+    // border-right: 2px solid #252a2f;
   }
   .rk-alarm-sel {
     position: absolute;
     top: 50px;
     box-shadow: 0 1px 6px rgba(99, 99, 99, 0.2);
-    background-color: #252a2f;
+    // background-color: #252a2f;
+    background-color: #fff;
     width: 100%;
     border-radius: 3px;
     overflow: hidden;
@@ -124,7 +124,8 @@ limitations under the License. -->
     padding: 7px 15px;
     &.active,
     &:hover {
-      background-color: #40454e;
+      // background-color: #40454e;
+      background-color: #ecf3ff;
     }
   }
   .rk-alarm-sel-search {

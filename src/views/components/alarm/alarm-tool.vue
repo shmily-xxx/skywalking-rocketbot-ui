@@ -15,37 +15,39 @@ limitations under the License. -->
 <template>
   <div class="rk-alarm-box">
     <div class="rk-alarm-btn-box">
-      <a class="rk-alarm-btn mr-10" @click="alarmHistoryPage(1)">
+      <a class="rk-alarm-btn mr-10" :class="{ active: !rocketAlarm.alarmPageType }" @click="alarmHistoryPage(1)">
         <span>{{ $t('alarmHistory') }}</span>
       </a>
-      <a class="rk-alarm-btn mr-10" @click="alarmStrategyPage(1)">
+      <a class="rk-alarm-btn mr-10" :class="{ active: rocketAlarm.alarmPageType }" @click="alarmStrategyPage(1)">
         <span>{{ $t('alarmStrategy') }}</span>
       </a>
     </div>
-    <nav class="rk-alarm-tool flex-h" v-if="!rocketAlarm.alarmPageType">
-      <AlarmSelect
-        :title="$t('filterScope')"
-        :value="alarmOption"
-        @input="
-          (option) => {
-            alarmOption = option;
-            handleRefresh(1);
-          }
-        "
-        :data="alarmOptions"
-      />
-      <div class="mr-10" style="padding: 3px 15px 0">
-        <div class="sm grey">{{ $t('searchKeyword') }}</div>
-        <input type="text" v-model="keyword" class="rk-alarm-tool-input" @input="handleRefresh(1)" />
-      </div>
-      <RkPage
-        class="mt-15"
-        :currentSize="20"
-        :currentPage="pageNum"
-        @changePage="(pageNum) => handleRefresh(pageNum)"
-        :total="total"
-      />
-    </nav>
+    <template v-if="!rocketAlarm.alarmPageType">
+      <nav class="rk-alarm-tool flex-h">
+        <AlarmSelect
+          :title="$t('filterScope')"
+          :value="alarmOption"
+          @input="
+            (option) => {
+              alarmOption = option;
+              handleRefresh(1);
+            }
+          "
+          :data="alarmOptions"
+        />
+        <div class="mr-10" style="padding: 3px 15px 0">
+          <div class="sm grey">{{ $t('searchKeyword') }}</div>
+          <input type="text" v-model="keyword" class="rk-alarm-tool-input" @input="handleRefresh(1)" />
+        </div>
+        <RkPage
+          class="mt-15"
+          :currentSize="20"
+          :currentPage="pageNum"
+          @changePage="(pageNum) => handleRefresh(pageNum)"
+          :total="total"
+        />
+      </nav>
+    </template>
   </div>
 </template>
 
@@ -139,39 +141,46 @@ limitations under the License. -->
         return;
       }
       this.SET_ALARM_PAGE_TYPE(1);
-      this.pageNum = pageNum;
-      const params: any = {
-        id: '222',
-        size: 10,
-        page: 1,
-      };
-      this.GET_ALARM_RULE(params);
     }
   }
 </script>
 
 <style lang="scss">
   .rk-alarm-box {
-    background-color: #333840;
+    background-color: #f3f4f9;
     .rk-alarm-btn-box {
       display: flex;
       align-items: center;
       padding: 10px 30px;
-      border-bottom: 2px solid #000;
       .rk-alarm-btn {
-        padding: 3px 9px;
-        color: #3369ff;
-        background-color: #fff;
+        position: relative;
+        padding: 3px 14px;
+        color: #6d7383;
+        background-color: #dbdeea;
         border-radius: 4px;
+      }
+      .active {
+        color: #000;
+        &::after {
+          content: '';
+          position: absolute;
+          display: inline-block;
+          width: 5px;
+          height: 10px;
+          border-radius: 4px;
+          background-color: #448dfe;
+          top: 9px;
+          left: 4px;
+        }
       }
     }
 
     .rk-alarm-tool {
-      border-bottom: 1px solid #c1c5ca41;
+      // border-bottom: 1px solid #c1c5ca41;
       height: 52px;
-      background-color: #333840;
+      background-color: #f3f4f9;
       padding: 0 15px;
-      color: #efefef;
+      // color: #efefef;
       flex-shrink: 0;
     }
 

@@ -135,7 +135,7 @@ limitations under the License. -->
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .rk-dashboard-bar {
     flex-shrink: 0;
     color: #efefef;
@@ -143,7 +143,7 @@ limitations under the License. -->
   }
   .rk-dashboard-bar-btn {
     padding: 0 5px;
-    border-right: 2px solid #252a2f;
+    // border-right: 2px solid #252a2f;
     height: 19px;
   }
   #endpoint-file {

@@ -19,10 +19,6 @@ module.exports = {
   productionSourceMap: process.env.NODE_ENV !== 'production',
   devServer: {
     proxy: {
-      '/graphql': {
-        target: `${'http://10.100.9.120:12800'}`,
-        changeOrigin: true,
-      },
       '/gateway': {
         target: 'http://172.28.9.230',
         changeOrigin: true,
@@ -40,6 +36,7 @@ module.exports = {
       });
   },
   configureWebpack: (config) => {
+    config.entry.app = ['babel-polyfill', './src/main.ts'];
     config.optimization = {
       splitChunks: {
         chunks: 'all',

@@ -17,7 +17,9 @@
 
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
-
+import localeElement from 'element-ui/lib/locale';
+import enLocale from 'element-ui/lib/locale/lang/en';
+import zhLocale from 'element-ui/lib/locale/lang/zh-CN';
 import zh from '@/assets/lang/zh';
 import en from '@/assets/lang/en';
 
@@ -29,13 +31,12 @@ if (!savedLanguage) {
   window.localStorage.setItem('lang', language);
 }
 language = savedLanguage ? savedLanguage : language;
-
 const i18n = new VueI18n({
   locale: language,
   messages: {
-    zh,
-    en,
+    zh: { ...zh, ...zhLocale },
+    en: { ...en, ...enLocale },
   },
 });
-
+localeElement.i18n((key: any, value: any) => i18n.t(key, value));
 export default i18n;

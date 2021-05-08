@@ -125,7 +125,7 @@ limitations under the License. -->
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .rk-profile-task {
     margin: 20px;
   }

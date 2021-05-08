@@ -34,11 +34,8 @@ limitations under the License. -->
         :item="i"
         :updateObjects="ObjectsType.UPDATE_DASHBOARD"
         :rocketOption="stateDashboardOption"
-      >
-      </DashboardItem>
-      <div v-show="rocketGlobal.edit" class="rk-add-dashboard-item g-sm-3" @click="ADD_COMP">
-        + Add An Item
-      </div>
+      ></DashboardItem>
+      <div v-show="rocketGlobal.edit" class="rk-add-dashboard-item g-sm-3" @click="ADD_COMP">+ Add An Item</div>
     </div>
   </div>
 </template>
@@ -121,7 +118,11 @@ limitations under the License. -->
         this.SET_TEMPLATES(templatesConfig);
         if (window.localStorage.getItem('version') !== '8.0') {
           window.localStorage.removeItem('dashboard');
-          const template = allTemplate.filter((item: ITemplate) => item.type === 'DASHBOARD' && item.activated);
+          const template = allTemplate.filter(
+            (item: ITemplate) =>
+              (item.type === 'DASHBOARD' && item.activated && item.name === 'APM') ||
+              (item.type === 'DASHBOARD' && item.name === 'Database' && item.activated),
+          );
           const templatesConfiguration = template.map((item: ITemplate) => JSON.parse(item.configuration)).flat(1);
           this.SET_COMPS_TREE(templatesConfiguration || []);
           window.localStorage.setItem('version', '8.0');

@@ -18,7 +18,7 @@ limitations under the License. -->
     <div class="rk-dashboard-bar-btn">
       <span v-tooltip:bottom="{ content: rocketGlobal.edit ? 'view' : 'edit' }">
         <svg
-          class="icon lg vm cp rk-btn ghost"
+          class="icon lg vm cp rk-btn ghost black"
           :style="`color:${!rocketGlobal.edit ? '' : '#ffc107'}`"
           @click="handleSetEdit"
         >
@@ -30,7 +30,7 @@ limitations under the License. -->
       <span v-tooltip:bottom="{ content: 'import' }">
         <input id="tool-bar-file" type="file" name="file" title="" accept=".json" @change="importData" />
         <label class="rk-btn ghost input-label" for="tool-bar-file">
-          <svg class="icon lg vm cp " :style="`marginTop: 0px`">
+          <svg class="icon lg vm cp black" :style="`marginTop: 0px`">
             <use :xlink:href="'#folder_open'"></use>
           </svg>
         </label>
@@ -38,14 +38,14 @@ limitations under the License. -->
     </div>
     <div class="rk-dashboard-bar-btn">
       <span v-tooltip:bottom="{ content: 'export' }">
-        <svg class="icon lg vm cp rk-btn ghost" @click="exportData">
+        <svg class="icon lg vm cp rk-btn ghost black" @click="exportData">
           <use :xlink:href="'#save_alt'"></use>
         </svg>
       </span>
     </div>
 
     <div class="rk-dashboard-bar-btn">
-      <svg class="icon lg vm cp rk-btn ghost" @click="handleOption">
+      <svg class="icon lg vm cp rk-btn ghost black" @click="handleOption">
         <use xlink:href="#retry"></use>
       </svg>
     </div>
@@ -111,8 +111,13 @@ limitations under the License. -->
 <style lang="scss" scoped>
   .rk-dashboard-bar-btn {
     padding: 0 5px;
-    border-right: 2px solid #252a2f;
+    // border-right: 2px solid #252a2f;
     height: 19px;
+    .icon {
+      &:hover {
+        color: #3369ff;
+      }
+    }
   }
   #tool-bar-file {
     display: none;
@@ -123,5 +128,8 @@ limitations under the License. -->
   }
   .btn-box {
     height: 58px;
+    .black {
+      color: #3d444f;
+    }
   }
 </style>

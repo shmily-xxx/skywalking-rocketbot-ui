@@ -135,10 +135,12 @@ limitations under the License. -->
 
 <style lang="scss" scoped>
   .rk-dashboard-group {
-    border-bottom: 1px solid #252a2f;
-    background-color: #333840;
+    // border-bottom: 1px solid #252a2f;
+    //background-color: #333840;
+    background-color: #f3f4f9;
     padding: 10px 15px 0;
-    color: #eee;
+    // color: #eee;
+    color: #6d7383;
   }
   .rk-dashboard-group-sel {
     outline: none;
@@ -188,10 +190,14 @@ limitations under the License. -->
     padding: 4px 13px 4px 15px;
     border-radius: 4px;
     position: relative;
-    background-color: rgba(255, 255, 255, 0.07);
+    //background-color: rgba(255, 255, 255, 0.07);
+    background-color: #dbdeea;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
     will-change: border-color, color;
     transition: border-color 0.3s, color 0.3s;
+    &.active {
+      color: #000;
+    }
     &.active::before {
       content: '';
       position: absolute;

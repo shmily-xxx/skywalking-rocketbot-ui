@@ -50,7 +50,7 @@ const logState: State = {
   type: { label: 'Service', key: 'service' },
   logCategories: [
     { label: 'Service', key: 'service' },
-    { label: 'Browser', key: 'browser' },
+    // { label: 'Browser', key: 'browser' },
   ],
   logs: [],
   total: 0,

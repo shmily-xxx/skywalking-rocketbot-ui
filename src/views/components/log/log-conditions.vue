@@ -292,7 +292,8 @@ limitations under the License. -->
 <style lang="scss" scoped>
   .rk-search-conditions {
     width: 100%;
-    background-color: #484b55;
+    // background-color: #484b55;
+    background-color: #dbdeea;
     padding: 10px;
     border-radius: 3px;
     margin-top: 4px;
@@ -309,7 +310,8 @@ limitations under the License. -->
       position: absolute;
       pointer-events: none;
       border-color: rgba(0, 0, 0, 0);
-      border-bottom-color: #484b55;
+      // border-bottom-color: #484b55;
+      border-bottom-color: #dbdeea;
       border-width: 8px;
       margin-right: 0px;
     }
@@ -340,10 +342,10 @@ limitations under the License. -->
       margin: 0 2px;
     }
     .log-tips {
-      color: #eee;
+      // color: #eee;
     }
     .search-time {
-      color: #eee;
+      //color: #eee;
     }
 
     .rk-log-search-input {

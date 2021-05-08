@@ -70,9 +70,10 @@ limitations under the License. -->
   .rk-alarm-tool {
     border-bottom: 1px solid #c1c5ca41;
     height: 52px;
-    background-color: #333840;
+    // background-color: #333840;
+    background-color: #f3f4f9;
     padding: 0 15px;
-    color: #efefef;
+    // color: #efefef;
     flex-shrink: 0;
   }
 

@@ -16,7 +16,7 @@ limitations under the License. -->
 <template>
   <div class="rk-trace-search">
     <div>
-      <a class="rk-trace-clear-btn r" @click="status = !status">
+      <a class="rk-trace-clear-btn bg-blue r" @click="status = !status">
         <span class="mr-5 vm">{{ $t('more') }}</span>
         <svg class="icon trans vm" :style="`transform: rotate(${status ? 180 : 0}deg);`">
           <use xlink:href="#arrow-down"></use>
@@ -28,7 +28,7 @@ limitations under the License. -->
         </svg>
         <span class="vm">{{ $t('search') }}</span>
       </a>
-      <a class="rk-trace-clear-btn r mr-10" @click="clearSearch">
+      <a class="rk-trace-clear-btn bg-blue r mr-10" @click="clearSearch">
         <svg class="icon mr-5 vm">
           <use xlink:href="#clear"></use>
         </svg>
@@ -294,8 +294,9 @@ limitations under the License. -->
 <style lang="scss">
   .rk-trace-search {
     flex-shrink: 0;
-    background-color: #333840;
-    color: #eee;
+    // background-color: #333840;
+    background-color: #f3f4f9;
+    // color: #eee;
     width: 100%;
     padding: 3px 15px 8px;
     .selected {
@@ -369,17 +370,18 @@ limitations under the License. -->
 
   .rk-trace-clear-btn {
     padding: 3px 9px;
-    background-color: #484b55;
+    // background-color: #484b55;
     border-radius: 4px;
     margin-top: 12px;
-
+    color: #fff;
     &.bg-warning {
       background-color: #fbb03b;
     }
   }
 
   .rk-trace-search-more {
-    background-color: #484b55;
+    // background-color: #484b55;
+    background-color: #dbdeea;
     padding: 4px 10px;
     border-radius: 3px;
     margin-top: 8px;
@@ -396,7 +398,8 @@ limitations under the License. -->
       position: absolute;
       pointer-events: none;
       border-color: rgba(0, 0, 0, 0);
-      border-bottom-color: #484b55;
+      // border-bottom-color: #484b55;
+      border-bottom-color: #dbdeea;
       border-width: 8px;
       margin-right: 0px;
     }

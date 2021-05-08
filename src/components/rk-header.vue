@@ -15,10 +15,10 @@ limitations under the License. -->
 <template>
   <header class="rk-header flex-h">
     <div class="flex-h">
-      <svg class="svg-logo icon" style="margin-right:35px;margin-top:-5px">
+      <!-- <svg class="svg-logo icon" style="margin-right:35px;margin-top:-5px">
         <use xlink:href="#logo-sw"></use>
       </svg>
-      <span class="grey rocketbot">Rocketbot</span>
+      <span class="grey rocketbot">Rocketbot</span>-->
       <router-link
         v-for="(menu, index) in menus"
         :key="index"
@@ -110,6 +110,9 @@ limitations under the License. -->
         this.timer = setInterval(this.handleReload, this.autoTime * 1000);
       }
     }
+    private created() {
+      this.$router.push('/');
+    }
   }
 </script>
 
@@ -121,10 +124,19 @@ limitations under the License. -->
     padding-right: 15px;
     padding-left: 15px;
     font-size: 13px;
-    color: #efefef;
+    // color: #efefef;
+    color: #212a40;
     z-index: 9;
-    background-color: #252a2f;
+    // background-color: #252a2f;
+    background-color: #dbdeea;
     box-shadow: 0 1px 2px 0 rgba(26, 24, 29, 0.24);
+    .rk-btn {
+      color: #212a40;
+      &:hover {
+        background-color: #357de9;
+        color: #fff;
+      }
+    }
     .svg-logo {
       width: 90px;
       height: 22px;
@@ -144,14 +156,17 @@ limitations under the License. -->
       padding: 4px 10px;
       border-radius: 4px;
       opacity: 0.8;
-      color: #efeff1;
+      // color: #efeff1;
+      color: #212a40;
       will-change: opacity, background-color;
       transition: opacity 0.3s, background-color 0.3s;
     }
     .nav-link:hover,
     .nav-link.active {
       opacity: 1;
-      background-color: #333844;
+      // background-color: #000;
+      background-color: #3369ff;
+      color: #fff;
     }
   }
   .rk-header-user {

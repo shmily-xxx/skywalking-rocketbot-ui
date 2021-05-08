@@ -16,7 +16,7 @@ limitations under the License. -->
 <template>
   <div class="rk-profile-header">
     <div>
-      <a class="rk-new-task-btn r" @click="showDialogTask">
+      <a class="rk-new-task-btn bg-blue r" @click="showDialogTask">
         <span class="mr-5 vm">{{ $t('newTask') }}</span>
       </a>
       <a class="rk-profile-header-btn bg-blue r mr-10" @click="searchTask">
@@ -89,8 +89,9 @@ limitations under the License. -->
 <style lang="scss">
   .rk-profile-header {
     flex-shrink: 0;
-    background-color: #333840;
-    color: #eee;
+    // background-color: #333840;
+    background-color: #f3f4f9;
+    //color: #eee;
     width: 100%;
     padding: 3px 15px 8px;
   }
@@ -107,7 +108,7 @@ limitations under the License. -->
     background-color: #484b55;
     border-radius: 4px;
     margin-top: 12px;
-
+    color: #fff;
     &.bg-blue {
       background-color: #448dfe;
     }
@@ -115,10 +116,10 @@ limitations under the License. -->
 
   .rk-new-task-btn {
     padding: 3px 9px;
-    background-color: #484b55;
+    // background-color: #484b55;
     border-radius: 4px;
     margin-top: 12px;
-
+    color: #fff;
     &.bg-warning {
       background-color: #fbb03b;
     }

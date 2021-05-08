@@ -16,7 +16,7 @@ limitations under the License. -->
   <div class="rk-alarm flex-v">
     <AlarmTool :total="rocketAlarm.total" />
     <AlarmTable v-if="!rocketAlarm.alarmPageType" :data="rocketAlarm.alarmService" />
-    <AlarmRuleTable v-else :data="rocketAlarm.alarmRule"></AlarmRuleTable>
+    <AlarmRule v-else></AlarmRule>
   </div>
 </template>
 
@@ -25,11 +25,11 @@ limitations under the License. -->
   import Component from 'vue-class-component';
   import AlarmTool from '../components/alarm/alarm-tool.vue';
   import AlarmTable from '../components/alarm/alarm-table.vue';
-  import AlarmRuleTable from '../components/alarm/alarm-rule-table.vue';
+  import AlarmRule from '../components/alarm/alarm-rule.vue';
   import { State } from 'vuex-class';
 
   @Component({
-    components: { AlarmTool, AlarmTable, AlarmRuleTable },
+    components: { AlarmTool, AlarmTable, AlarmRule },
   })
   export default class Alarm extends Vue {
     @State('rocketAlarm') private rocketAlarm!: any;

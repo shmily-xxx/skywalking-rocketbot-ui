@@ -62,6 +62,10 @@ export const CLEAR_ALARM = 'CLEAR_ALARM';
 export const SET_ALARM_RULE = 'SET_ALARM_RULE';
 export const CLEAR_ALARM_RULE = 'CLEAR_ALARM_RULE';
 export const SET_ALARM_PAGE_TYPE = 'SET_ALARM_PAGE_TYPE';
+export const SET_USER_LIST = 'SET_USER_LIST';
+export const SET_USER_GROUP_LIST = 'SET_USER_GROUP_LIST';
+export const CLEAR_NOTIC_TABLE_LIST = 'CLEAR_NOTIC_TABLE_LIST';
+export const SET_USER_INFO = 'SET_USER_INFO';
 
 // trace
 export const SET_TRACELIST = 'SET_TRACELIST';

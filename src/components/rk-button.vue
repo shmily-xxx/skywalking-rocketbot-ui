@@ -37,6 +37,7 @@ limitations under the License. -->
     background-color: #448dfe;
     border-radius: 4px;
     color: #fff;
+    //color:#212A40;
     transition: background-color 0.3s;
     .icon {
       margin-top: -2px;
@@ -51,7 +52,8 @@ limitations under the License. -->
       background-color: transparent;
     }
     &:hover {
-      background-color: #357de9;
+      // background-color: #357de9;
+      color: #fff;
     }
   }
 </style>
