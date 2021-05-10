@@ -546,7 +546,7 @@ const actions: ActionTree<State, any> = {
     const querys = `query queryData(${variables}) {${fragment}}`;
     return axios
       .post(
-        '/gateway/oap/graphql',
+        '/gateway/apm/graphql',
         { query: querys, variables: { duration: params.duration } },
         { cancelToken: cancelToken() },
       )
@@ -608,7 +608,7 @@ const actions: ActionTree<State, any> = {
         const query = `query queryData(${queryVariables}) {${fragments}}`;
         return axios
           .post(
-            '/gateway/oap/graphql',
+            '/gateway/apm/graphql',
             { query, variables: { duration: params.duration } },
             { cancelToken: cancelToken() },
           )

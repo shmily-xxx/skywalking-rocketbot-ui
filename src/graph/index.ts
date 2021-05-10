@@ -43,7 +43,7 @@ class Graph {
   }
   public params(variablesData: any): AxiosPromise<void> {
     return axios.post(
-      '/gateway/oap/graphql',
+      '/gateway/apm/graphql',
       {
         query: query[this.queryData],
         variables: variablesData,
