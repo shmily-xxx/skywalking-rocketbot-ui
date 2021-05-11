@@ -36,7 +36,6 @@ module.exports = {
       });
   },
   configureWebpack: (config) => {
-    config.entry.app = ['babel-polyfill', './src/main.ts'];
     config.optimization = {
       splitChunks: {
         chunks: 'all',
